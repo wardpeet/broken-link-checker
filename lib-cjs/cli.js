@@ -165,6 +165,7 @@ const logSiteMetrics = () => {
   }));
   const separator = (0, _chalk.gray)("=".repeat((0, _longest.default)((0, _stripAnsi.default)(output).split("\n")).length));
   log(`\n${separator}${output}\n${separator}\n`);
+  process.exit(stats.site.brokenLinks);
 };
 const run = () => {
   Object.values(_themes.themes).forEach(theme => {
