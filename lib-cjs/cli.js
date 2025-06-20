@@ -188,7 +188,9 @@ const run = () => {
     logProgress();
     logResults();
   }).on(_events.LINK_EVENT, link => {
-    stats.pushResult(link);
+    if (link.get(HTML_TAG_NAME) !== "button") {
+      stats.pushResult(link);
+    }
     logProgress();
     logResults();
   }).on(_events.PAGE_EVENT, (error, pageURL) => {

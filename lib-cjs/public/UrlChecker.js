@@ -34,7 +34,7 @@ class UrlChecker extends _SafeEventEmitter.default {
       link
     }, done) => {
       const result = await (0, _checkLink.default)(link, auth, this.#cache, options);
-      if (result.get(_Link.WAS_EXCLUDED) || link.htmlTagName === "button") {
+      if (result.get(_Link.WAS_EXCLUDED)) {
         this.emit(_events.JUNK_EVENT, result, customData);
       } else {
         this.emit(_events.LINK_EVENT, result, customData);
